@@ -1,0 +1,9 @@
+# Ignore the virtual environment
+venv/
+
+*.py[cod]
+
+
+scripts/__pycache__/
+
+.DS_Store
