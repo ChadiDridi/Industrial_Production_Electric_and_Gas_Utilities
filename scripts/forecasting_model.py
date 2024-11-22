@@ -71,7 +71,7 @@ def fit_lstm(data, column, look_back=1):
     testX = testX.reshape((testX.shape[0], 1, testX.shape[1]))
 
     model = Sequential()
-    model.add(LSTM(50, input_shape=(1, look_back)))
+    model.add(LSTM(50, input_shape=(1, look_back)))    #sequential model with one lstm layer (not fine tuned)
     model.add(Dense(1))
     model.compile(loss='mean_squared_error', optimizer='adam')
     model.fit(trainX, trainY, epochs=100, batch_size=1, verbose=2)
@@ -113,7 +113,7 @@ if __name__ == "__main__":
     data = load_data("../IPG2211A2N.csv")
     
     # Decompose the time series
-    decompose_time_series(data, "IPG2211A2N")
+    decompose_time_series(data, "")
     
     # Compare 
-    compare_models(data, "IPG2211A2N")
+    compare_models(data, "")

@@ -1,6 +1,7 @@
 from scripts.datapreparation import load_data
 from scripts.data_visualisation import plot_time_series
 from scripts.forecasting_model import fit_arima, decompose_time_series, fit_ets, fit_prophet,compare_models
+from scripts.model_comparaison import plot_model_performance, plot_model_errors
 
 def main():
     # Load  the data
@@ -20,5 +21,9 @@ def main():
     prophet_model, prophet_forecast = fit_prophet(data, "IPG2211A2N", yearly_seasonality=True, weekly_seasonality=False, daily_seasonality=False)
     # Compare models
     compare_models(data, "IPG2211A2N")
+    
+    plot_model_performance(data, "IPG2211A2N", arima_results, ets_results, prophet_forecast, look_back=1)
+
+
 if __name__ == "__main__":
     main()
